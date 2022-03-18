@@ -3,47 +3,114 @@ package ventanas;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Ventana_menu extends JFrame implements ActionListener {
+public class Ventana_menu extends JFrame  {
     private JLabel lbl_tri,lbl_for,lbl_exp;
     private JTextField txt_exp;
-    private JButton bt_calcular;
     public static String formula;
+    private JMenuBar bar1;
+    private JMenu menu_opc;
+    private JMenuItem item_cal,item_nuevo;
+    private JButton bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14;
+    private JLabel lbl1,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10;
+    private JPanel panel_calcu;
     public Ventana_menu(){
-        setLayout(null);
+        
         setTitle("Trinomio");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         getContentPane().setBackground(new Color(176,224,27));
         
-        lbl_tri=new JLabel("Trinomios");
-        lbl_tri.setBounds(210, 20, 280, 50);
-        lbl_tri.setFont( new Font("Arial",1,35));
-        lbl_tri.setForeground(new Color(84, 187, 0));
-        add(lbl_tri);
+        Container contenedor=getContentPane();
+        bar1=new JMenuBar();
+        setJMenuBar(bar1);
+        contenedor.add(bar1,BorderLayout.NORTH);
         
-        lbl_for=new JLabel(image("/images/formula.png",204,53));
-        lbl_for.setBounds(210, 70, 205, 55);
-        add(lbl_for);
+        menu_opc=new JMenu("Opciones");
+        bar1.add(menu_opc);
         
-        lbl_exp=new JLabel("Ingrese la expresion a calcular:");
-        lbl_exp.setBounds(170, 130, 300, 40);
-        lbl_exp.setFont(new Font("Arial",2,18));
-        lbl_exp.setForeground(new Color(84, 187, 0));
-        add(lbl_exp);
+        item_cal=new JMenuItem("Calcular");
+        menu_opc.add(item_cal);
         
-        txt_exp=new JTextField();
-        txt_exp.setBounds(200, 190, 200, 30);
-        txt_exp.setBackground(new Color(141, 232, 0));
-        txt_exp.setFont(new Font("Arial",0,16));
-        txt_exp.setForeground(new Color(255,255,255));
-        add(txt_exp);
+        item_nuevo=new JMenuItem("Nuevo");
+        menu_opc.add(item_nuevo);
         
-        bt_calcular=new JButton("Calcular");
-        bt_calcular.setBounds(250, 240, 100, 30);
-        bt_calcular.setBackground(new Color(141,232,0));
-        bt_calcular.setFont(new Font("Arial",3,14));
-        bt_calcular.setForeground(new Color(255,255,255));
-        bt_calcular.addActionListener(this);
-        add(bt_calcular);
+        panel_calcu=new JPanel();
+        panel_calcu.setLayout(new GridLayout(6,4));
+        panel_calcu.setBackground(new Color(176,224,27));
+        
+        lbl1=new JLabel();
+        panel_calcu.add(lbl1);
+        
+        lbl2=new JLabel();
+        panel_calcu.add(lbl2);
+        
+        lbl3=new JLabel();
+        panel_calcu.add(lbl3);
+        
+        lbl4=new JLabel();
+        panel_calcu.add(lbl4);
+        
+        bt1=new JButton("1");
+        panel_calcu.add(bt1);
+        
+        bt2=new JButton("2");
+        panel_calcu.add(bt2);
+        
+        bt3=new JButton("3");
+        panel_calcu.add(bt3);
+        
+        bt4=new JButton("+");
+        panel_calcu.add(bt4);
+        
+        bt5=new JButton("4");
+        panel_calcu.add(bt5);
+        
+        bt6=new JButton("5");
+        panel_calcu.add(bt6);
+        
+        bt7=new JButton("6");
+        panel_calcu.add(bt7);
+        
+        bt8=new JButton("-");
+        panel_calcu.add(bt8);
+        
+        bt9=new JButton("7");
+        panel_calcu.add(bt9);
+        
+        bt10=new JButton("8");
+        panel_calcu.add(bt10);
+        
+        bt11=new JButton("9");
+        panel_calcu.add(bt11);
+        
+        bt12=new JButton("*");
+        panel_calcu.add(bt12);
+        
+        lbl5=new JLabel();
+        panel_calcu.add(lbl5);
+        
+        bt13=new JButton("0");
+        panel_calcu.add(bt13);
+        
+        lbl6=new JLabel();
+        panel_calcu.add(lbl6);
+        
+        bt14=new JButton("x*2");
+        panel_calcu.add(bt14);
+        
+        lbl7=new JLabel();
+        panel_calcu.add(lbl7);
+        
+        lbl8=new JLabel();
+        panel_calcu.add(lbl8);
+        
+        lbl9=new JLabel();
+        panel_calcu.add(lbl9);
+        
+        lbl10=new JLabel();
+        panel_calcu.add(lbl10);
+        
+        contenedor.add(panel_calcu,BorderLayout.WEST);
+      
     }
     
     public Icon image(String url,int anch,int alt){
@@ -52,8 +119,8 @@ public class Ventana_menu extends JFrame implements ActionListener {
         return image;
     }
     
-    @Override
-    public void actionPerformed(ActionEvent e){
+    //@Override
+    /*public void actionPerformed(ActionEvent e){
         if(e.getSource()==bt_calcular){
             formula=txt_exp.getText().trim();
             if(formula.equalsIgnoreCase("")){
@@ -68,7 +135,7 @@ public class Ventana_menu extends JFrame implements ActionListener {
                 this.setVisible(false);
             }
         }
-    }
+    }*/
     public static void main(String[] args) {
         Ventana_menu menu =new Ventana_menu();
         menu.setBounds(0,0,600,350);
