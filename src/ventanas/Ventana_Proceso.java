@@ -64,7 +64,7 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==bt_regresar){
             Ventana_menu menu =new Ventana_menu();
-            menu.setBounds(0,0,600,350);
+            menu.setBounds(0,0,1000,600);
             menu.setVisible(true);
             menu.setResizable(false);
             menu.setLocationRelativeTo(null);
