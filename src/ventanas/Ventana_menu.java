@@ -10,8 +10,8 @@ public class Ventana_menu extends JFrame  implements ActionListener{
     private JMenuBar bar1;
     private JMenu menu_opc;
     private JMenuItem item_cal;
-    private JButton bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14;
-    private JLabel lbl1,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lblvacio,lbl_teacher,lbl_materia;
+    private JButton bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14,bt15,bt16;
+    private JLabel lbl1,lbl2,lbl3,lbl4,lbl7,lbl8,lbl9,lbl10,lblvacio,lbl_teacher,lbl_materia;
     private JPanel panel_calcu,panel_prin,panel_datos,panel_nor,panel_sur;
     public Ventana_menu(){
         
@@ -65,52 +65,67 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         panel_calcu.add(lbl4);
         
         bt1=new JButton("1");
+        bt1.addActionListener(this);
         panel_calcu.add(bt1);
         
         bt2=new JButton("2");
+        bt2.addActionListener(this);
         panel_calcu.add(bt2);
         
         bt3=new JButton("3");
+        bt3.addActionListener(this);
         panel_calcu.add(bt3);
         
         bt4=new JButton("+");
+        bt4.addActionListener(this);
         panel_calcu.add(bt4);
         
         bt5=new JButton("4");
+        bt5.addActionListener(this);
         panel_calcu.add(bt5);
         
         bt6=new JButton("5");
+        bt6.addActionListener(this);
         panel_calcu.add(bt6);
         
         bt7=new JButton("6");
+        bt7.addActionListener(this);
         panel_calcu.add(bt7);
         
         bt8=new JButton("-");
+        bt8.addActionListener(this);
         panel_calcu.add(bt8);
         
         bt9=new JButton("7");
+        bt9.addActionListener(this);
         panel_calcu.add(bt9);
         
         bt10=new JButton("8");
+        bt10.addActionListener(this);
         panel_calcu.add(bt10);
         
         bt11=new JButton("9");
+        bt11.addActionListener(this);
         panel_calcu.add(bt11);
         
-        bt12=new JButton("*");
+        bt12=new JButton("=");
+        bt12.addActionListener(this);
         panel_calcu.add(bt12);
         
-        lbl5=new JLabel();
-        panel_calcu.add(lbl5);
+        bt16=new JButton("DEL");
+        bt16.addActionListener(this);
+        panel_calcu.add(bt16);
         
         bt13=new JButton("0");
+        bt13.addActionListener(this);
         panel_calcu.add(bt13);
         
-        lbl6=new JLabel();
-        panel_calcu.add(lbl6);
+        bt15=new JButton("x");
+        bt15.addActionListener(this);
+        panel_calcu.add(bt15);
         
-        bt14=new JButton();
-        bt14.setIcon(image("/images/xcua.png",30,30));
+        bt14=new JButton("x²");
+        bt14.addActionListener(this);
         panel_calcu.add(bt14);
         
         lbl7=new JLabel();
@@ -152,6 +167,7 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         txt_exp.setBackground(new Color(141, 232, 0));
         txt_exp.setFont(new Font("Arial",0,16));
         txt_exp.setForeground(new Color(255,255,255));
+        txt_exp.setEditable(false);
         panel_prin.add(txt_exp);
         
         contenedor.add(panel_prin,BorderLayout.CENTER);
@@ -247,6 +263,54 @@ public class Ventana_menu extends JFrame  implements ActionListener{
                 ven.setLocationRelativeTo(null);
                 this.setVisible(false);
             }
+        }
+        if(e.getSource()==bt13){
+            txt_exp.setText(txt_exp.getText()+"0");
+        }
+        if(e.getSource()==bt1){
+            txt_exp.setText(txt_exp.getText()+"1");
+        }
+        if(e.getSource()==bt2){
+            txt_exp.setText(txt_exp.getText()+"2");
+        }
+        if(e.getSource()==bt3){
+            txt_exp.setText(txt_exp.getText()+"3");
+        }
+        if(e.getSource()==bt5){
+            txt_exp.setText(txt_exp.getText()+"4");
+        }
+        if(e.getSource()==bt6){
+            txt_exp.setText(txt_exp.getText()+"5");
+        }
+        if(e.getSource()==bt7){
+            txt_exp.setText(txt_exp.getText()+"6");
+        }
+        if(e.getSource()==bt9){
+            txt_exp.setText(txt_exp.getText()+"7");
+        }
+        if(e.getSource()==bt10){
+            txt_exp.setText(txt_exp.getText()+"8");
+        }
+        if(e.getSource()==bt11){
+            txt_exp.setText(txt_exp.getText()+"9");
+        }
+        if(e.getSource()==bt4){
+            txt_exp.setText(txt_exp.getText()+"+");
+        }
+        if(e.getSource()==bt8){
+            txt_exp.setText(txt_exp.getText()+"-");
+        }
+        if(e.getSource()==bt12){
+            txt_exp.setText(txt_exp.getText()+"=");
+        }
+        if(e.getSource()==bt14){
+            txt_exp.setText(txt_exp.getText()+"x²");
+        }
+        if(e.getSource()==bt15){
+            txt_exp.setText(txt_exp.getText()+"x");
+        }
+        if(e.getSource()==bt16){
+            txt_exp.setText("");
         }
     }
     public static void main(String[] args) {
