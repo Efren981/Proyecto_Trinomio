@@ -4,12 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 public class Ventana_menu extends JFrame  implements ActionListener{
-    private JLabel lbl_tri,lbl_for,lbl_exp,lbl_int1,lbl_int2,lbl_int3,lbl_int4,lbl_int5,lbl_int6,lbl_integrantes,lbl_sistemas,lbl_tec;
+    private JLabel lbl_tri,lbl_for,lbl_exp,lbl_int1,lbl_int2,lbl_int3,lbl_int4,lbl_int5,lbl_int6,lbl_int7,lbl_integrantes,lbl_sistemas,lbl_tec;
     private JTextField txt_exp;
     public static String formula;
     private JMenuBar bar1;
     private JMenu menu_opc;
-    private JMenuItem item_cal,item_nuevo;
+    private JMenuItem item_cal;
     private JButton bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14;
     private JLabel lbl1,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lblvacio,lbl_teacher,lbl_materia;
     private JPanel panel_calcu,panel_prin,panel_datos,panel_nor,panel_sur;
@@ -31,10 +31,6 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         item_cal=new JMenuItem("Calcular");
         item_cal.addActionListener(this);
         menu_opc.add(item_cal);
-        
-        item_nuevo=new JMenuItem("Nuevo");
-        item_nuevo.addActionListener(this);
-        menu_opc.add(item_nuevo);
         
         panel_nor=new JPanel();
         panel_nor.setLayout(new GridLayout(1,3));
@@ -164,48 +160,54 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         panel_datos.setLayout(new GridLayout(10,1));
         panel_datos.setBackground(new Color(176,224,27));
         
-        lbl_integrantes=new JLabel("        Integrantes:        ");
+        lbl_integrantes=new JLabel("           INTEGRANTES        ");
         lbl_integrantes.setBounds(10, 10, 150, 30);
         lbl_integrantes.setFont( new Font("Arial",1,14));
         lbl_integrantes.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_integrantes);
         
-        lbl_int1=new JLabel("Efren Barcenas Garcia");
+        lbl_int1=new JLabel("BARCENAS GARCIA EFREN");
         lbl_int1.setBounds(10, 10, 150, 30);
-        lbl_int1.setFont( new Font("Arial",1,14));
+        lbl_int1.setFont( new Font("Arial",1,12));
         lbl_int1.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_int1);
         
-        lbl_int2=new JLabel("Victor Alfredo Ruiz Torres");
+        lbl_int2=new JLabel("CEBALLOS ÁVILA EDGAR RAÚL");
         lbl_int2.setBounds(10, 50, 150, 30);
-        lbl_int2.setFont( new Font("Arial",1,14));
+        lbl_int2.setFont( new Font("Arial",1,12));
         lbl_int2.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_int2);
         
-        lbl_int3=new JLabel("Dario");
+        lbl_int3=new JLabel("GARDUÑO DE PAZ RODRIGO DARIO");
         lbl_int3.setBounds(10, 90, 150, 30);
-        lbl_int3.setFont( new Font("Arial",1,14));
+        lbl_int3.setFont( new Font("Arial",1,12));
         lbl_int3.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_int3);
         
-        lbl_int4=new JLabel("e");
+        lbl_int4=new JLabel("LÓPEZ ESPINOZA JULIO ALEJANDRO");
         lbl_int4.setBounds(10, 130, 150, 30);
-        lbl_int4.setFont( new Font("Arial",1,14));
+        lbl_int4.setFont( new Font("Arial",1,12));
         lbl_int4.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_int4);
         
-        lbl_int5=new JLabel("rr");
+        lbl_int5=new JLabel("LOPEZ ESTRADA LLISEL");
         lbl_int5.setBounds(10, 170, 150, 30);
-        lbl_int5.setFont( new Font("Arial",1,14));
+        lbl_int5.setFont( new Font("Arial",1,12));
         lbl_int5.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_int5);
         
-        lbl_int6=new JLabel("r");
+        lbl_int6=new JLabel("MONTES DE OCA GUARNEROS RODRIGO");
         lbl_int6.setBounds(10, 210, 150, 30);
-        lbl_int6.setFont( new Font("Arial",1,14));
+        lbl_int6.setFont( new Font("Arial",1,12));
         lbl_int6.setForeground(new Color(255, 255, 255));
         panel_datos.add(lbl_int6);
         contenedor.add(panel_datos,BorderLayout.EAST);
+        
+        lbl_int7=new JLabel("RUIZ TORRES VÍCTOR ALFREDO");
+        lbl_int7.setBounds(10, 10, 150, 30);
+        lbl_int7.setFont( new Font("Arial",1,12));
+        lbl_int7.setForeground(new Color(255, 255, 255));
+        panel_datos.add(lbl_int7);
         
         panel_sur=new JPanel();
         panel_sur.setLayout(new GridLayout(2,1));
@@ -245,9 +247,6 @@ public class Ventana_menu extends JFrame  implements ActionListener{
                 ven.setLocationRelativeTo(null);
                 this.setVisible(false);
             }
-        }
-        if(e.getSource()==item_nuevo){
-            txt_exp.setText("");
         }
     }
     public static void main(String[] args) {
