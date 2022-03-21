@@ -1,35 +1,32 @@
 package clases;
-
 public class clase_proceso {
-
-    public String proceso(int a, int b, int c) {
-        String res = "";
-        //int a,b,c;
-        /*a=3;
-       b=2;
-       c=4;*/
-        int[] array_1 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        int[] array_2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-
-        for (int i = 0; i < array_1.length; i++) {
-            for (int j = 0; j < array_2.length; j++) {
-                if (array_2[j] - array_1[i] == b) {
-                    res += "Resta " + (array_2[j] - array_1[i]);
-                    if (array_2[j] * array_1[i] == c) {
-                        res +="\nmulti " + (array_2[j] * array_1[i]);
-                      // return res;
-                    }
-                  //return res;
-                }
-               //return res;
-            }
-            return res;
+    
+    public String x1(int a,int b,int c){
+        String retorno="";
+        double det=Math.pow(b, 2) - (4*a*c);
+        if(det>0){
+            double x1,x2;
+            x1=(((b*(-1))+Math.sqrt(det))/(2*a));
+            retorno =""+x1;
         }
-        return null;
+        else{
+            System.out.println("No se puede realizar operacion");
+        }
+        return retorno;
     }
 
-    public static void main(String[] args) {
-        clase_proceso c = new clase_proceso();
-        System.out.println(  c.proceso(3, 2, 4));
+    public String x2(int a,int b,int c){
+        String retorno1="";
+        double det=Math.pow(b, 2) - (4*a*c);
+        if(det>0){
+            double x1,x2;
+            x2=(((b*(-1))-Math.sqrt(det))/(2*a));
+            retorno1=""+x2;
+        }
+        else{
+            System.out.println("No se puede realizar operacion");
+        }
+        return retorno1;
     }
+
 }

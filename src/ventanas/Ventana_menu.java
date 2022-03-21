@@ -3,6 +3,7 @@ package ventanas;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import clases.clase_proceso;
 public class Ventana_menu extends JFrame  implements ActionListener{
     private JLabel lbl_tri,lbl_for,lbl_exp,lbl_int1,lbl_int2,lbl_int3,lbl_int4,lbl_int5,lbl_int6,lbl_int7,lbl_integrantes,lbl_sistemas,lbl_tec;
     private JTextField txt_exp;
@@ -13,11 +14,13 @@ public class Ventana_menu extends JFrame  implements ActionListener{
     private JButton bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,bt10,bt11,bt12,bt13,bt14,bt15,bt16;
     private JLabel lbl1,lbl2,lbl3,lbl4,lbl7,lbl8,lbl9,lbl10,lblvacio,lbl_teacher,lbl_materia;
     private JPanel panel_calcu,panel_prin,panel_datos,panel_nor,panel_sur;
+    //Estas variables se van a la siguiente ventana
+    public static String x1,x2;
+    
     public Ventana_menu(){
         
         setTitle("Trinomio");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        getContentPane().setBackground(new Color(176,224,27));
         setIconImage(new ImageIcon(getClass().getResource("/images/icon.png")).getImage());
         
         Container contenedor=getContentPane();
@@ -44,13 +47,13 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         lbl_sistemas=new JLabel(image("/images/isc.png",130,130));
         panel_nor.add(lbl_sistemas);
         
-        panel_nor.setBackground(new Color(176,224,27));
+        panel_nor.setBackground(new Color( 0, 147, 96 ));
         contenedor.add(panel_nor,BorderLayout.NORTH);
         
         
         panel_calcu=new JPanel();
         panel_calcu.setLayout(new GridLayout(6,4));
-        panel_calcu.setBackground(new Color(176,224,27));
+        panel_calcu.setBackground(new Color( 0, 147, 96 ));
         
         lbl1=new JLabel();
         panel_calcu.add(lbl1);
@@ -144,12 +147,12 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         
         panel_prin=new JPanel();
         panel_prin.setLayout(null);
-        panel_prin.setBackground(new Color(176,224,27));
+        panel_prin.setBackground(new Color( 0, 147, 96 ));
         
         lbl_tri=new JLabel("Trinomios");
         lbl_tri.setBounds(180, 20, 200, 50);
         lbl_tri.setFont( new Font("Arial",1,25));
-        lbl_tri.setForeground(new Color(84, 187, 0));
+        lbl_tri.setForeground(new Color(255, 255, 255));
         panel_prin.add(lbl_tri);
         
         lbl_for=new JLabel(image("/images/formula.png",250,230));
@@ -159,14 +162,14 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         lbl_exp=new JLabel("Ingrese la expresion a calcular:");
         lbl_exp.setBounds(130, 130, 300, 40);
         lbl_exp.setFont(new Font("Arial",2,18));
-        lbl_exp.setForeground(new Color(84, 187, 0));
+        lbl_exp.setForeground(new Color(255, 255, 255));
         panel_prin.add(lbl_exp);
         
         txt_exp=new JTextField();
-        txt_exp.setBounds(165, 190, 200, 30);
-        txt_exp.setBackground(new Color(141, 232, 0));
-        txt_exp.setFont(new Font("Arial",0,16));
-        txt_exp.setForeground(new Color(255,255,255));
+        txt_exp.setBounds(155, 190, 200, 30);
+        txt_exp.setBackground(new Color(240, 240, 240));
+        txt_exp.setFont(new Font("Arial",1,16));
+        txt_exp.setForeground(new Color(0,0,0));
         txt_exp.setEditable(false);
         panel_prin.add(txt_exp);
         
@@ -174,7 +177,7 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         
         panel_datos=new JPanel();
         panel_datos.setLayout(new GridLayout(10,1));
-        panel_datos.setBackground(new Color(176,224,27));
+        panel_datos.setBackground(new Color( 0, 147, 96 ));
         
         lbl_integrantes=new JLabel("           INTEGRANTES        ");
         lbl_integrantes.setBounds(10, 10, 150, 30);
@@ -227,16 +230,16 @@ public class Ventana_menu extends JFrame  implements ActionListener{
         
         panel_sur=new JPanel();
         panel_sur.setLayout(new GridLayout(2,1));
-        panel_sur.setBackground(new Color(176,224,27));
+        panel_sur.setBackground(new Color( 0, 147, 96 ));
         
         lbl_teacher=new JLabel("Docente: M. en I.S.C Ámbar Gonźalez Guadarrama");
-        lbl_teacher.setFont( new Font("Arial",1,20));
-        lbl_teacher.setForeground(new Color(84, 187, 0));
+        lbl_teacher.setFont( new Font("Arial",1,18));
+        lbl_teacher.setForeground(new Color(255, 255, 255));
         panel_sur.add(lbl_teacher);
         
         lbl_materia=new JLabel("Asignatura: Ecuaciones Diferenciales");
-        lbl_materia.setFont( new Font("Arial",1,20));
-        lbl_materia.setForeground(new Color(84, 187, 0));
+        lbl_materia.setFont( new Font("Arial",1,18));
+        lbl_materia.setForeground(new Color(255, 255, 255));
         panel_sur.add(lbl_materia);
         contenedor.add(panel_sur,BorderLayout.SOUTH);
         
@@ -250,12 +253,15 @@ public class Ventana_menu extends JFrame  implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==item_cal){
+        clase_proceso valores=new clase_proceso();
+        if(e.getSource()==item_cal){//aqui es donde se invocan los metodos
             formula=txt_exp.getText().trim();
             if(formula.equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null, "Debes de ingresar un la expresion");
             }
             else{
+                //Exactamente aqui
+                
                 Ventana_Proceso ven=new Ventana_Proceso();
                 ven.setBounds(0, 0, 500, 450);
                 ven.setVisible(true);
