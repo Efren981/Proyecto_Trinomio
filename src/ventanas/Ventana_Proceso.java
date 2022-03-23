@@ -23,7 +23,7 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
         //aqui importamos todas las variables
         
         //agregando componentes
-        lbl_formul=new JLabel("Expresion: "+expresion);
+        lbl_formul=new JLabel("Expresión: "+expresion);
         lbl_formul.setBounds(30, 30, 300, 30);
         lbl_formul.setFont(new Font("Arial",1,18));
         lbl_formul.setForeground(new Color(255, 255, 255));
@@ -41,7 +41,7 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
         ar_res.setBackground(new Color(0, 186, 121));
         ar_res.setFont(new Font("Arial",0,16));
         ar_res.setForeground(new Color(255,255,255));
-        ar_res.setText("Aqui aparece el resultado :3");
+        ar_res.setText("( x + "+x1+")  (x + "+x2+")");
         scroll=new JScrollPane(ar_res);
         scroll.setBounds(30, 125, 440, 200);
         add(scroll);

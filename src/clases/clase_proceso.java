@@ -1,16 +1,19 @@
 package clases;
+
+import javax.swing.JOptionPane;
+
 public class clase_proceso {
     
     public String x1(int a,int b,int c){
         String retorno="";
         double det=Math.pow(b, 2) - (4*a*c);
         if(det>0){
-            double x1,x2;
+            double x1;
             x1=(((b*(-1))+Math.sqrt(det))/(2*a));
             retorno =""+x1;
         }
         else{
-            System.out.println("No se puede realizar operacion");
+            JOptionPane.showMessageDialog(null, "Elige otros datos");
         }
         return retorno;
     }
@@ -19,14 +22,18 @@ public class clase_proceso {
         String retorno1="";
         double det=Math.pow(b, 2) - (4*a*c);
         if(det>0){
-            double x1,x2;
+            double x2;
             x2=(((b*(-1))-Math.sqrt(det))/(2*a));
             retorno1=""+x2;
         }
         else{
-            System.out.println("No se puede realizar operacion");
+            JOptionPane.showMessageDialog(null, "Elige otros datos");
         }
         return retorno1;
     }
-
+    public static void main(String[] args) {
+        clase_proceso clase=new clase_proceso();
+        System.out.println("x1: "+ clase.x1(1, 6, 8));
+        System.out.println("x2: "+ clase.x2(1, 6, 8));;
+    }
 }
