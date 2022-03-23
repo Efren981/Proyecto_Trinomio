@@ -8,7 +8,7 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
     private JScrollPane scroll;
     private JTextArea ar_res;
     private JButton bt_regresar,bt_salir;
-    String expresion,x1,x2;
+    String expresion,x1,x2,operador1, operador2;
     
     public Ventana_Proceso() {
         setLayout(null);
@@ -18,10 +18,11 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
         //Objeto de la primer clase
         Ventana_menu menu=new Ventana_menu();
         expresion=menu.formula;
-        x1=menu.x1;
-        x2=menu.x2;
+        x1=sin_cero(Double.parseDouble(menu.x1));
+        x2=sin_cero(Double.parseDouble(menu.x2));
         //aqui importamos todas las variables
-        
+        operador1=menu.op1;
+        operador2=menu.op2;
         //agregando componentes
         lbl_formul=new JLabel("Expresión: "+expresion);
         lbl_formul.setBounds(30, 30, 300, 30);
@@ -41,10 +42,15 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
         ar_res.setBackground(new Color(0, 186, 121));
         ar_res.setFont(new Font("Arial",0,16));
         ar_res.setForeground(new Color(255,255,255));
-        ar_res.setText("( x + "+x1+")  (x + "+x2+")");
         scroll=new JScrollPane(ar_res);
-        scroll.setBounds(30, 125, 440, 200);
+        scroll.setBounds(30, 125, 540, 200);
         add(scroll);
+        //Prueba de visibildad
+        if(x1.contains("-")){
+            ar_res.setText("( x "+"  "+x1+"  )  ( x "+" "+x2+" )");
+        }else{
+            ar_res.setText("( x "+operador1+"  "+x1+"  )  ( x "+" "+x2+" )");
+        }
         
         //Estos son los botones, no borrar
         
@@ -79,9 +85,19 @@ public class Ventana_Proceso extends JFrame implements ActionListener{
             System.exit(0);
         }
     }
+    public String sin_cero(double resultado){
+        String retorno="";
+        
+        retorno=Double.toString(resultado);
+        if(resultado%1==0){
+            retorno=retorno.substring(0, retorno.length()-2);
+        }
+        
+        return retorno;
+    }
     public static void main(String[] args) {
         Ventana_Proceso ven=new Ventana_Proceso();
-        ven.setBounds(0, 0, 500, 450);
+        ven.setBounds(0, 0, 600, 450);
         ven.setVisible(true);
         ven.setResizable(false);
         ven.setLocationRelativeTo(null);

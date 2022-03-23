@@ -32,8 +32,10 @@ public class clase_proceso {
         return retorno1;
     }
     public static void main(String[] args) {
+        
+        //numeros de prueba 1 6 8
         clase_proceso clase=new clase_proceso();
-        System.out.println("x1: "+ clase.x1(1, 6, 8));
-        System.out.println("x2: "+ clase.x2(1, 6, 8));;
+        System.out.println("x1: "+ clase.x1(2, -2, -3));
+        System.out.println("x2: "+ clase.x2(2, -2, -3));;
     }
 }
